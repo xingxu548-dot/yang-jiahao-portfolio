@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090a0c" />
+  <title>杨嘉昊 · 音乐剧演员</title>
+  <meta name="description" content="音乐剧演员杨嘉昊个人主页概念原型" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="loader" aria-hidden="true"><div class="loader-mark">Y<i></i></div><p>YANG JIAHAO</p><span></span></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="ambient-world" aria-hidden="true"><i class="orb orb-a"></i><i class="orb orb-b"></i><i class="horizon"></i></div>
+  <div class="progress-rail" aria-hidden="true"><i></i><span>SCROLL / 00</span></div>
+  <header class="site-nav">
+    <a class="mark" href="#hero" aria-label="返回首页"><span>Y</span><i></i></a>
+    <nav aria-label="主导航">
+      <a href="#profile">档案</a><a href="#roles">角色</a><a href="#gallery">影像</a>
+    </nav>
+    <div class="index">YJH / 001</div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="gate" aria-hidden="true"><i class="beam beam-l"></i><i class="beam beam-r"></i><i class="beam beam-c"></i></div>
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">MUSICAL THEATRE ACTOR</p>
+        <h1>杨嘉昊</h1>
+        <p class="latin">YANG JIAHAO</p>
+      </div>
+      <p class="manifesto reveal">静处蓄势<br />登场有声</p>
+      <button class="scroll-hint" type="button" data-scroll="#profile"><span>向下探索</span><i></i></button>
+    </section>
+
+    <section class="identity-film" aria-label="杨嘉昊演员与角色身份显影">
+      <div class="identity-sticky">
+        <div class="identity-gate" aria-hidden="true"><img src="assets/ai-gate-hero.png" alt="" /></div>
+        <div class="identity-ritual" aria-hidden="true"><img src="assets/ai-identity-ritual.png" alt="" /></div>
+        <div class="identity-wash" aria-hidden="true"></div>
+        <div class="identity-copy identity-copy-a"><span>ACTOR / 2004</span><h2>光落下之前</h2><p>他先成为自己。</p></div>
+        <div class="identity-copy identity-copy-b"><span>ROLE / HIGH PRIEST</span><h2>一步入境</h2><p>同一张脸，抵达另一重灵魂。</p></div>
+        <div class="identity-counter"><b>00</b><i></i><b>01</b></div>
+      </div>
+    </section>
+
+    <section class="profile section" id="profile">
+      <div class="chapter">01 / PROFILE</div>
+      <div class="profile-copy reveal">
+        <p class="kicker">演员档案</p>
+        <h2>安静不是<br />没有声音</h2>
+        <p class="lead">它只是力量抵达舞台之前，<br />短暂而准确的停顿。</p>
+      </div>
+      <dl class="facts reveal">
+        <div><dt>出生日期</dt><dd>2004.12.19</dd></div>
+        <div><dt>院校</dt><dd>沈阳音乐学院</dd></div>
+        <div><dt>专业</dt><dd>音乐剧系 · 2022级</dd></div>
+        <div><dt>身份</dt><dd>音乐剧演员</dd></div>
+      </dl>
+      <div class="profile-portrait reveal"><img src="assets/portrait.jpg" alt="杨嘉昊演员写真" /></div>
+    </section>
+
+    <section class="timeline section" aria-label="成长时间轴">
+      <div class="chapter">02 / BECOMING</div>
+      <div class="timeline-intro reveal"><p class="kicker">BECOMING AN ACTOR</p><h2>时间不是履历<br />是成为的过程</h2></div>
+      <div class="timeline-line" aria-hidden="true"><i></i></div>
+      <div class="timeline-years">
+        <article class="year-card reveal"><b>2004</b><span>12.19 · BORN</span><p>故事从冬日开始。<br />一副声音，等待被听见。</p></article>
+        <article class="year-card reveal"><b>2022</b><span>MUSICAL THEATRE</span><p>进入沈阳音乐学院音乐剧系，<br />让声音、身体与人物相遇。</p></article>
+        <article class="year-card reveal"><b>NOW</b><span>ON THE WAY</span><p>从课堂走进沉浸式剧场，<br />每一次登场都成为新的坐标。</p></article>
+      </div>
+    </section>
+
+    <section class="duality section" id="roles">
+      <div class="chapter light">02 / BETWEEN ROLES</div>
+      <div class="duality-title reveal"><p>从本人，到角色</p><h2>两面之间</h2></div>
+      <div class="compare" id="compare">
+        <img class="compare-base" src="assets/portrait.jpg" alt="杨嘉昊日常演员形象" />
+        <div class="compare-overlay"><img src="assets/high-priest.jpg" alt="杨嘉昊大祭司角色形象" /></div>
+        <div class="compare-line"><button aria-label="拖动切换演员与角色"><span>↔</span></button></div>
+        <p class="compare-label label-left">YANG JIAHAO</p><p class="compare-label label-right">THE HIGH PRIEST</p>
+      </div>
+      <p class="drag-tip">拖动中线，进入角色</p>
+    </section>
+
+    <section class="priest section">
+      <div class="priest-bg" aria-hidden="true"></div>
+      <div class="priest-vignette" aria-hidden="true"></div>
+      <div class="chapter">03 / THE HIGH PRIEST</div>
+      <div class="priest-copy reveal">
+        <p class="kicker">沉浸式剧场《幡灵迷境》</p>
+        <h2>大祭司</h2>
+        <p>角色不是戴上去的面具。<br />是从自己身上，找到另一个人。</p>
+      </div>
+      <div class="role-number">01</div>
+    </section>
+
+    <section class="instrument section" aria-label="演员能力与表演语言">
+      <div class="chapter light">04 / INSTRUMENT</div>
+      <div class="instrument-head reveal"><p class="kicker">THE ACTOR'S INSTRUMENT</p><h2>他用什么<br />抵达角色</h2></div>
+      <div class="instrument-orbit">
+        <div class="instrument-portrait"><img src="assets/role-gesture.jpg" alt="杨嘉昊舞台表演动作" /></div>
+        <article data-index="01"><span>VOICE</span><h3>声音</h3><p>从音乐剧训练出发，让呼吸、台词与旋律成为人物的内在节奏。</p></article>
+        <article data-index="02"><span>BODY</span><h3>身体</h3><p>用姿态、重心与行走方式，在观众开口判断之前建立角色。</p></article>
+        <article data-index="03"><span>GAZE</span><h3>凝视</h3><p>沉浸式剧场没有安全距离，目光本身就是叙事与邀请。</p></article>
+      </div>
+    </section>
+
+    <section class="demon-world" id="demon-king" aria-label="杨嘉昊饰演妖王">
+      <div class="demon-stage">
+        <div class="demon-layer demon-layer-a"><img src="assets/demon-full.jpg" alt="杨嘉昊妖王全身舞台造型" /></div>
+        <div class="demon-layer demon-layer-b"><img src="assets/demon-portrait.jpg" alt="杨嘉昊妖王黑羽肖像" /></div>
+        <div class="demon-layer demon-layer-c"><img src="assets/demon-confront.jpg" alt="妖王舞台对峙场面" /></div>
+        <div class="demon-layer demon-layer-d"><img src="assets/demon-red.jpg" alt="妖王红光舞台画面" /></div>
+        <div class="demon-veil" aria-hidden="true"></div>
+        <div class="demon-title"><span>NEW CHARACTER / DEMON KING</span><h2>妖王</h2><p>黑羽之下，欲望与秩序彼此撕扯。</p></div>
+        <div class="demon-note note-a"><b>01</b><span>威压</span><p>静止，也能占据整个空间。</p></div>
+        <div class="demon-note note-b"><b>02</b><span>锋芒</span><p>以眼神制造距离，以身体逼近观众。</p></div>
+        <div class="demon-note note-c"><b>03</b><span>失控</span><p>冷蓝褪去，角色在赤红中彻底苏醒。</p></div>
+        <div class="demon-glyph" aria-hidden="true">王</div>
+        <div class="demon-progress"><i></i><span>AWAKENING</span></div>
+      </div>
+      <div class="demon-coda">
+        <figure><img src="assets/demon-throne.jpg" alt="妖王王座感舞台肖像" /></figure>
+        <div><span>ROLE STUDY / 02</span><h3>不靠咆哮<br />建立统治</h3><p>妖王的力量不只来自外形。压低的重心、延迟的动作与不轻易移开的目光，让危险感先于台词抵达。</p></div>
+      </div>
+    </section>
+
+    <section class="cinematic-reel" id="reel">
+      <div class="reel-stage">
+        <div class="reel-image reel-a"><img src="assets/ritual-close.jpg" alt="大祭司妆面特写" /></div>
+        <div class="reel-image reel-b"><img src="assets/forest-01.jpg" alt="森林角色肖像" /></div>
+        <div class="reel-image reel-c"><img src="assets/cat-floor.jpg" alt="猫系舞台角色" /></div>
+        <div class="reel-shade"></div>
+        <div class="reel-copy copy-a"><span>01 / RITUAL</span><h2>凝视</h2><p>力量，在沉默中生长。</p></div>
+        <div class="reel-copy copy-b"><span>02 / INSTINCT</span><h2>入境</h2><p>身体先于语言，进入人物。</p></div>
+        <div class="reel-copy copy-c"><span>03 / PLAY</span><h2>越界</h2><p>不被一种角色定义。</p></div>
+        <div class="reel-meter"><i></i><b>01</b><b>02</b><b>03</b></div>
+      </div>
+    </section>
+
+    <section class="interlude" aria-label="演员宣言">
+      <div class="interlude-track">
+        <span>VOICE INTO BODY</span><i></i><span>身体成为人物</span><i></i><span>CHARACTER INTO LIGHT</span><i></i><span>人物抵达观众</span>
+      </div>
+      <div class="floating-frame frame-a"><img src="assets/forest-02.jpg" alt="" /></div>
+      <div class="floating-frame frame-b"><img src="assets/cat-stage.jpg" alt="" /></div>
+      <p>每一个角色，<br />都打开另一扇门。</p>
+    </section>
+
+    <section class="range section">
+      <div class="chapter light">04 / RANGE</div>
+      <div class="range-head reveal"><p class="kicker">角色跨度</p><h2>不止一种<br />登场方式</h2></div>
+      <div class="range-track">
+        <article class="role-card"><img src="assets/forest-01.jpg" alt="森林氛围角色写真" /><span>冷峻 / 凝视</span></article>
+        <article class="role-card tall"><img src="assets/cat-02.jpg" alt="猫系角色造型" /><span>诙谐 / 肢体</span></article>
+        <article class="role-card"><img src="assets/fantasy.jpg" alt="幻想角色写真" /><span>幻想 / 情绪</span></article>
+        <article class="role-card wide"><img src="assets/cat-stage.jpg" alt="舞台表演现场" /><span>舞台 / 行动</span></article>
+      </div>
+    </section>
+
+    <section class="statement section">
+      <p class="statement-line reveal">声音进入身体</p>
+      <p class="statement-line offset reveal">身体成为人物</p>
+      <p class="statement-line accent reveal">人物抵达观众</p>
+      <div class="pulse" aria-hidden="true"></div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="chapter">05 / ARCHIVE</div>
+      <div class="gallery-head reveal"><p class="kicker">影像档案</p><h2>每一次凝视<br />都有不同答案</h2></div>
+      <div class="gallery-grid">
+        <figure class="g1 reveal"><img src="assets/role-wide.jpg" alt="大祭司表演画面" /><figcaption>IMMERSIVE / 2026</figcaption></figure>
+        <figure class="g2 reveal"><img src="assets/forest-02.jpg" alt="森林角色肖像" /><figcaption>PORTRAIT / CHARACTER</figcaption></figure>
+        <figure class="g3 reveal"><img src="assets/cinema-wide.jpg" alt="电影感角色剧照" /><figcaption>STAGE / MOMENT</figcaption></figure>
+        <figure class="g4 reveal"><img src="assets/cat-01.jpg" alt="角色排练现场" /><figcaption>REHEARSAL / PLAY</figcaption></figure>
+      </div>
+      <div class="film-strip" aria-hidden="true">
+        <img src="assets/sword.jpg" alt="" /><img src="assets/role-gesture.jpg" alt="" /><img src="assets/mask-square.jpg" alt="" /><img src="assets/role-wide.jpg" alt="" /><img src="assets/cinema-03.jpg" alt="" />
+        <img src="assets/sword.jpg" alt="" /><img src="assets/role-gesture.jpg" alt="" /><img src="assets/mask-square.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="backstage" aria-label="后台与排练切片">
+      <div class="backstage-copy reveal"><span>OFF STAGE / ON THE WAY</span><h2>舞台之外<br />仍在成为</h2><p>妆面、候场、排练与短暂松弛，<br />共同构成角色被看见之前的漫长时间。</p></div>
+      <div class="backstage-ribbon">
+        <figure><img src="assets/ritual-close.jpg" alt="角色造型记录" /><figcaption>01 / BEFORE LIGHT</figcaption></figure>
+        <figure><img src="assets/sword.jpg" alt="动作造型记录" /><figcaption>02 / IN MOTION</figcaption></figure>
+        <figure><img src="assets/mask-square.jpg" alt="妆面细节记录" /><figcaption>03 / MAKEUP</figcaption></figure>
+        <figure><img src="assets/cinema-03.jpg" alt="后台影像记录" /><figcaption>04 / BETWEEN</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="birthday section" aria-label="杨嘉昊十二月十九日生日纪念">
+      <canvas id="constellation" aria-hidden="true"></canvas>
+      <div class="birthday-ring" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="birthday-copy reveal"><span>WINTER / 12·19</span><p>愿每一次谢幕之后<br />都有下一束光为你亮起</p><h2>12<span>·</span>19</h2><b>HAPPY BIRTHDAY · YANG JIAHAO</b></div>
+    </section>
+
+    <section class="finale section">
+      <div class="final-gate" aria-hidden="true"></div>
+      <div class="final-copy reveal">
+        <p>尚未唱出的歌<br />尚未抵达的舞台</p>
+        <h2>杨嘉昊</h2>
+        <span>YANG JIAHAO</span>
+      </div>
+      <footer><span>2004.12.19</span><span>静处蓄势，登场有声</span><span>© 2026</span></footer>
+    </section>
+  </main>
+  <dialog class="lightbox"><button type="button" aria-label="关闭大图">×</button><img alt="放大的演员影像" /></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
