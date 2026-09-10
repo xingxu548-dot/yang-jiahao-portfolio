@@ -37,6 +37,7 @@ const demonWorld=document.querySelector('.demon-world'),demonLayers=[...document
 let ticking=false;
 function progressFor(element){const rect=element.getBoundingClientRect();return clamp((innerHeight-rect.top)/(innerHeight+rect.height),0,1)}
 function renderScroll(){
+  const mobile=innerWidth<=760;
   const maxScroll=document.documentElement.scrollHeight-innerHeight;
   const pageP=clamp(window.scrollY/maxScroll,0,1);
   const velocity=clamp((targetY-currentY)/45,-12,12);
@@ -44,7 +45,7 @@ function renderScroll(){
   document.body.style.setProperty('--velocity',velocity.toFixed(3));
   progressLabel.textContent=`SCROLL / ${String(Math.round(pageP*100)).padStart(2,'0')}`;
   const heroP=clamp(window.scrollY/innerHeight,0,1);
-  heroPhoto.style.transform=`translate3d(${heroP*3}vw,${heroP*72}px,0) scale(${1+heroP*.09})`;
+  heroPhoto.style.transform=`translate3d(${heroP*(mobile?0:3)}vw,${heroP*(mobile?18:72)}px,0) scale(${1+heroP*(mobile?.025:.09)})`;
   heroPhoto.style.filter=`saturate(${.72+heroP*.08}) contrast(1.04) blur(${heroP*1.5}px)`;
   heroCopy.style.transform=`translate3d(0,${-heroP*64}px,0)`;heroCopy.style.opacity=String(1-heroP*.82);
   gate.style.transform=`translate3d(0,${heroP*110}px,0) scaleX(${1+heroP*.18})`;gate.style.opacity=String(1-heroP*.4);
@@ -52,7 +53,7 @@ function renderScroll(){
   const identityP=clamp(-identityRect.top/(identityRect.height-innerHeight),0,1);
   const revealP=clamp((identityP-.28)/.48,0,1);
   identityGate.style.opacity=String(1-clamp((identityP-.22)*1.5,0,.78));
-  identityGate.style.transform=`scale(${1+identityP*.16}) translate3d(0,${identityP*-3}vh,0)`;
+  identityGate.style.transform=`scale(${1+identityP*(mobile?.05:.16)}) translate3d(0,${identityP*(mobile?-1:-3)}vh,0)`;
   identityRitual.style.opacity=String(clamp((identityP-.18)*1.8,0,1));
   identityRitual.style.clipPath=`circle(${revealP*82}% at 50% 50%)`;
   identityRitual.style.transform=`scale(${1.12-identityP*.1})`;
@@ -68,14 +69,14 @@ function renderScroll(){
   demonLayers.forEach((layer,i)=>{const distance=Math.abs(demonP-demonCenters[i]);layer.style.opacity=String(clamp(1-distance*5,0,1));layer.style.transform=`scale(${1.1-demonP*.06}) translate3d(${(demonP-demonCenters[i])*3}vw,0,0)`;layer.style.clipPath=`inset(${clamp(distance*15,0,8)}% ${clamp(distance*12,0,7)}%)`;if(distance<Math.abs(demonP-demonCenters[demonActive]))demonActive=i});
   demonTitle.style.opacity=String(clamp(1-demonP*4,0,1));demonTitle.style.transform=`translate3d(0,${-44-demonP*90}%,0)`;
   demonNotes.forEach((note,i)=>{const center=.24+i*.25,distance=Math.abs(demonP-center);note.style.opacity=String(clamp(1-distance*7,0,1));note.style.transform=`translate3d(0,${-30+(demonP-center)*120}px,0)`});
-  const backstageP=progressFor(backstage);backstageRibbon.style.transform=`translate3d(${18-backstageP*54}vw,0,0)`;
-  const profileP=progressFor(profile);profilePortrait.style.transform=`translate3d(0,${(profileP-.5)*-8}%,0) scale(1.035)`;
+  const backstageP=progressFor(backstage);backstageRibbon.style.transform=mobile?'none':`translate3d(${18-backstageP*54}vw,0,0)`;
+  const profileP=progressFor(profile);profilePortrait.style.transform=mobile?'none':`translate3d(0,${(profileP-.5)*-8}%,0) scale(1.035)`;
   const dualityP=progressFor(duality);if(!dragging){const auto=clamp(16+dualityP*68,10,90);overlay.style.clipPath=`inset(0 0 0 ${auto}%)`;line.style.left=`${auto}%`}
-  const priestP=progressFor(priest);priestBg.style.transform=`translate3d(${(priestP-.5)*2}vw,${(priestP-.5)*145}px,0) scale(${1.08+Math.abs(priestP-.5)*.04})`;
+  const priestP=progressFor(priest);priestBg.style.transform=`translate3d(${(priestP-.5)*(mobile?.3:2)}vw,${(priestP-.5)*(mobile?32:145)}px,0) scale(${mobile?1.035:1.08+Math.abs(priestP-.5)*.04})`;
   const interludeP=progressFor(interlude);
   interludeTrack.style.transform=`translate3d(${24-interludeP*48}vw,0,0)`;
-  frameA.style.transform=`translate3d(0,${(interludeP-.5)*-130}px,0) rotate(${-8+interludeP*6}deg)`;
-  frameB.style.transform=`translate3d(0,${(interludeP-.5)*110}px,0) rotate(${7-interludeP*5}deg)`;
+  frameA.style.transform=`translate3d(0,${(interludeP-.5)*(mobile?-45:-130)}px,0) rotate(${-8+interludeP*6}deg)`;
+  frameB.style.transform=`translate3d(0,${(interludeP-.5)*(mobile?38:110)}px,0) rotate(${7-interludeP*5}deg)`;
   const reelRect=reel.getBoundingClientRect();
   const reelP=clamp(-reelRect.top/(reelRect.height-innerHeight),0,1);
   const centers=[0,.5,1];
@@ -91,8 +92,8 @@ function renderScroll(){
     if(distance<Math.abs(reelP-centers[active]))active=i;
   });
   reelDots.forEach((dot,i)=>dot.classList.toggle('active',i===active));
-  rangeImages.forEach((img,i)=>{const p=progressFor(img.parentElement);const wide=img.parentElement.classList.contains('wide');const amplitude=wide?10:(i%2?44:-44);img.style.transform=`translate3d(0,${(p-.5)*amplitude}px,0) scale(${wide?1.01:1.035})`});
-  galleryImages.forEach((img,i)=>{const p=progressFor(img.parentElement);img.style.transform=`translate3d(0,${(p-.5)*(i%2?-34:34)}px,0) scale(1.025)`});
+  rangeImages.forEach((img,i)=>{if(mobile){img.style.transform='none';return}const p=progressFor(img.parentElement);const wide=img.parentElement.classList.contains('wide');const amplitude=wide?10:(i%2?44:-44);img.style.transform=`translate3d(0,${(p-.5)*amplitude}px,0) scale(${wide?1.01:1.035})`});
+  galleryImages.forEach((img,i)=>{if(mobile){img.style.transform='none';return}const p=progressFor(img.parentElement);img.style.transform=`translate3d(0,${(p-.5)*(i%2?-34:34)}px,0) scale(1.025)`});
   ticking=false;
 }
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(renderScroll);ticking=true}},{passive:true});
